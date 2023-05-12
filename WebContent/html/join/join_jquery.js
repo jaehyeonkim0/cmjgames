@@ -325,12 +325,14 @@ $("button[name='btn-agreement']").click(function() {
 *************************************************************************/
 $("#check-btn-style").click(function(){
 	
-	if($("input[name='input-id']").val()==""){
+	if($("#input-id").val()==""){
 		alert("아이디를 입력해주세요");
 		$("input[name='input-id']").focus();
 		return false;
 	}else {
-		$.ajax
+		
+		
+		
 	}
 	
 });

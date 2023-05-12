@@ -1697,7 +1697,8 @@ td#payment-totalPrice {
 
 /*****************************cmj**************************************/
 /*******************************모달창************************************/
-div#modal {
+div#modal,
+#modal2 {
 	position: fixed;
 	top:50%; 			
 	left:50%;
@@ -1708,7 +1709,8 @@ div#modal {
 	display: none;
 }
 
-div.agreement {
+div.agreement,
+div.agreement2 {
 	position: fixed;
 	top:50%; 			
 	left:50%;
@@ -1749,5 +1751,19 @@ div.agreement button#button-gradient {
 
 div.detail1, div.detail2, div.detail3, div.detail4 {
 	display: none;
+}
+
+
+.deleteComplete {
+	display: none;
+}
+
+#delete-span {
+	display: inline-block;
+	margin: 25px 0;
+}
+
+div.agreement2 {
+	height: 300px;
 }
 /*******************************모달창************************************/
