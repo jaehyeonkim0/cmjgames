@@ -1337,7 +1337,8 @@ td#payment-totalPrice {
 	text-indent: 10px;
 }
 
-#input-address {
+#input-address,
+#input-id {
 	width: 325px;
 	padding: 20px 0;
 	margin: 5px 0;
@@ -1346,6 +1347,10 @@ td#payment-totalPrice {
 	border: 1px solid lightgray;
 	outline: none;
 	font-size: 16px;
+}
+
+#input-id {
+	width: 301px;
 }
 
 /* page introduce */
@@ -1484,7 +1489,8 @@ td#payment-totalPrice {
 }
 
 /* join,myPage zip-code find button*/
-#address-btn-style {
+#address-btn-style,
+#check-btn-style {
 	background: #393939;
 	border-radius: 5px;
 	width: 50px;
@@ -1493,6 +1499,10 @@ td#payment-totalPrice {
 	font-size: 14px;
 	cursor: pointer;
 	margin: 0 8px;
+}
+
+#check-btn-style {
+	width: 80px;
 }
 
 /* join checkbox agreement*/

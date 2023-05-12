@@ -7,16 +7,12 @@ $(document).ready(function(){
 			alert("아이디는 필수 입력 항목입니다");
 			$("input[name='id'").focus();
 			return false;
-		}else if(!idCheck1($("input[name='id']").val()) || !idCheck2($("input[name='id']").val())) {
+		}else if(!idCheck2($("input[name='id']").val())) {
 			alert("아이디는 영문 또는 영문+숫자로 작성해주세요");
 			$("input[name='id'").focus();
 			return false;
 		}else if(!idCheck3($("input[name='id']").val())) {
 			alert("아이디는 5~10글자로 작성해주세요");
-			$("input[name='id'").focus();
-			return false;
-		}else if(!idCheck4($("input[name='id']").val())){
-			alert("아이디는 영문부터 작성해주세요");
 			$("input[name='id'").focus();
 			return false;
 		}else if($("input[name='pwd'").val()==""){
@@ -91,11 +87,11 @@ $(document).ready(function(){
 /*************************************************************************
 						input null값 확인
 *************************************************************************/
-	function idCheck1(asValue){
+	/*function idCheck1(asValue){
 		var regex1 = /[^0-9]/g;
 		
 		return regex1.test(asValue);
-	}
+	}*/
 	
 	function idCheck2(asValue) {
 		var regex2 = /^[a-zA-Z0-9]*$/;
@@ -109,11 +105,11 @@ $(document).ready(function(){
 		return regex3.test(asValue);
 	}
 	
-	function idCheck4(asValue){//영어로 시작하고 숫자로 시작하면 안됨
+	/*function idCheck4(asValue){//영어로 시작하고 숫자로 시작하면 안됨
 		var regex4 = /^[A-Za-z]{1}[A-Za-z0-9]{3,19}$/;
 		
 		return regex4.test(asValue);
-	}
+	}*/
 	
 	function pwdCheck(asValue) {
 		var regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/g;
@@ -144,14 +140,10 @@ $(document).ready(function(){
 		if($("input[name='id']").val()==""){
 			$("#idMsg").text("필수항목입니다").css("color","red").css("font-size","11px").css("display","block");
 		}else {
-			if(!idCheck1($("input[name='id']").val())) {
-				$("#idMsg").text("영문 또는 영문+숫자로 작성해주세요").css("color","red").css("font-size","11px").css("display","block");
-			}else if(!idCheck2($("input[name='id']").val())){
-				$("#idMsg").text("영문 또는 영문+숫자로 작성해주세요").css("color","red").css("font-size","11px").css("display","block");
+			if(!idCheck2($("input[name='id']").val())){
+				$("#idMsg").text("영문 또는 숫자로 작성해주세요").css("color","red").css("font-size","11px").css("display","block");
 			}else if(!idCheck3($("input[name='id']").val())) {
 				$("#idMsg").text("5~10자리로 작성해주세요").css("color","red").css("font-size","11px").css("display","block");
-			}else if(!idCheck4($("input[name='id']").val())){
-				$("#idMsg").text("영문부터 작성해주세요").css("color","red").css("font-size","11px").css("display","block");
 			}else {
 				$("#idMsg").css("display","none");
 			}
@@ -329,8 +321,19 @@ $("button[name='btn-agreement']").click(function() {
 	$("#modal").hide();
 });
 /*************************************************************************
-	
+								아이디 중복체크
 *************************************************************************/
+$("#check-btn-style").click(function(){
+	
+	if($("input[name='input-id']").val()==""){
+		alert("아이디를 입력해주세요");
+		$("input[name='input-id']").focus();
+		return false;
+	}else {
+		$.ajax
+	}
+	
+});
 /*************************************************************************
 	
 *************************************************************************/
