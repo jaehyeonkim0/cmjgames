@@ -13,7 +13,7 @@
 	$(document).ready(function(){
 		
 		$("#tab-menu li").find("a").click(function(){
-			location.href="FindId.html";
+			location.href="FindId.jsp";
 		});
 		
 		$("#button-gradient1").click(function(){

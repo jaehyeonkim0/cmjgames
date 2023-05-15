@@ -10,6 +10,16 @@
 	<script src="../join/jquery-3.6.4.min.js"></script>
 	<script src="https://t1.kakaocdn.net/kakao_js_sdk/v1/kakao.min.js"></script>
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<!-- 여기 -->
+	<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.1.0/kakao.min.js"
+	  integrity="sha384-dpu02ieKC6NUeKFoGMOKz6102CLEWi9+5RQjWSV0ikYSFFd8M3Wp2reIcquJOemx" crossorigin="anonymous"></script>
+	<script>
+	  Kakao.init('c089c8172def97eb00c07217cae17495'); // 사용하려는 앱의 JavaScript 키 입력
+	</script>
+	
+	
+	
+	<!-- 여기 -->
 	<script>
 		$(document).ready(function(){
 			
@@ -133,15 +143,48 @@
 			</div>
 		</form>
 		<div>
-			<a href="javascript:kakaoLogin();">
-			<img src="https://www.gb.go.kr/Main/Images/ko/member/certi_kakao_login.png" style="height: 40px; width: auto; display: block; margin: auto; padding: 10px 0;">
+			<a id="kakao-login-btn" href="javascript:loginWithKakao()">
+	 		<img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="222"
+	    		alt="카카오 로그인 버튼" />
 			</a>
-			<a href="javascript:kakaoLogout();">로그아웃</a>
+			
 		</div>
 	</section>
 	<footer>
 		<iframe src="../main/footer.html"
 			scrolling="no" width="100%" height="646px" frameborder="0"></iframe>
 	</footer>
+	<script>
+	  function loginWithKakao() {
+	    Kakao.Auth.authorize({
+	      redirectUri: 'http://localhost:9000/cmjgames/html/login',
+	    });
+	  }
+	
+	  // 아래는 데모를 위한 UI 코드입니다.
+	  displayToken()
+	  function displayToken() {
+	    var token = getCookie('authorize-access-token');
+	
+	    if(token) {
+	      Kakao.Auth.setAccessToken(token);
+	      Kakao.Auth.getStatusInfo()
+	        .then(function(res) {
+	          if (res.status === 'connected') {
+	            document.getElementById('token-result').innerText
+	              = 'login success, token: ' + Kakao.Auth.getAccessToken();
+	          }
+	        })
+	        .catch(function(err) {
+	          Kakao.Auth.setAccessToken(null);
+	        });
+	    }
+	  }
+	
+	  function getCookie(name) {
+	    var parts = document.cookie.split(name + '=');
+	    if (parts.length === 2) { return parts[1].split(';')[0]; }
+	  }
+	</script>
 </body>
 </html>

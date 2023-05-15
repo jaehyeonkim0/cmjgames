@@ -327,7 +327,7 @@ $("#check-btn-style").click(function(){
 	
 	if($("#input-id").val()==""){
 		alert("아이디를 입력해주세요");
-		$("input[name='input-id']").focus();
+		$("#input-id").focus();
 		return false;
 	}else {
 		

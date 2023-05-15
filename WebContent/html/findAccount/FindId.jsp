@@ -13,7 +13,7 @@
 	$(document).ready(function(){
 		
 		$("#tab-menu li").find("a").click(function(){
-			location.href="FindPwd.html";
+			location.href="FindPwd.jsp";
 		});
 		
 		$("#button-gradient").click(function(){
@@ -45,8 +45,6 @@
 			
 			if($("input[name='phone']").val()==""){
 				$("#msgPhone").text("필수항목입니다").css("color","red").css("font-size","11px").css("display","block");
-			}else if(){
-				
 			}else {
 				$("#msgPhone").css("display","none");
 			}
